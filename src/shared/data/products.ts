@@ -1,4 +1,4 @@
-import { Product } from '../../entities/Product';
+import { Product } from 'src/entities/Product';
 import { v4 as uuidv4 } from 'uuid';
 
 const products: Product[] = [
