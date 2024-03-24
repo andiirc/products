@@ -6,11 +6,6 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   build: {
     outDir: 'dist',
-    rollupOptions: {
-      input: {
-        main: 'src/main.tsx',
-      },
-    },
   },
   plugins: [react(), splitVendorChunkPlugin(), tsconfigPaths()],
 })
