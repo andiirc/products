@@ -20,7 +20,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    /* Prefix paths modules */
+    /* paths modules */
     "baseUrl": ".",
     "paths": {
       "src/*": ["src/*"]
