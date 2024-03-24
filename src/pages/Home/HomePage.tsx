@@ -1,10 +1,10 @@
 
 import { FC, useEffect, useState } from 'react'
-import { ListProducts } from '../../features/products/components/ListProducts'
-import { ProductRepository } from '../../features/products/adapters/out/data/ProductRepository';
-import { GetProductUseCase } from '../../features/products/usecases/GetProductUseCase';
-import { SaveProductUseCase } from '../../features/products/usecases/SaveProductUseCase';
-import { Product } from '../../entities/Product';
+import { ListProducts } from 'src/features/products/components/ListProducts'
+import { ProductRepository } from 'src/features/products/adapters/out/repository/ProductRepository';
+import { GetProductUseCase } from 'src/features/products/usecases/GetProductUseCase';
+import { SaveProductUseCase } from 'src/features/products/usecases/SaveProductUseCase';
+import { Product } from 'src/entities/Product';
 
 const HomePage:FC = (): JSX.Element => {
   const [product, setProduct] = useState<Product>({name: '', price: 0});

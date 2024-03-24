@@ -1,5 +1,5 @@
-import { Product } from "../../../entities/Product";
-import { IProductRepository } from "../interfaces/IProductRepository";
+import { Product } from "src/entities/Product";
+import { IProductRepository } from "src/features/products/interfaces/IProductRepository";
 
 class GetProductUseCase {
 

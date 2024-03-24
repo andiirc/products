@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { ProductItem } from '../../../entities/Product'
+import { ProductItem } from 'src/entities/Product'
 
 const ProductComponent:FC<ProductItem> = ({ product }: ProductItem): JSX.Element => {
   return (
