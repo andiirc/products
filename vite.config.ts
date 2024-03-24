@@ -12,11 +12,5 @@ export default defineConfig({
       },
     },
   },
-  test: {
-    coverage: {
-      provider: 'instanbul',
-      reporter: ['text', 'json', 'html'],
-    },
-  },
   plugins: [react(), splitVendorChunkPlugin(), tsconfigPaths()],
 })

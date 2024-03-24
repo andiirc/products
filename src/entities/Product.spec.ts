@@ -1,4 +1,3 @@
-import { products } from 'src/shared/data/products';
 import {describe, it, expect} from 'vitest';
 import { Product, Products, ProductItem } from './Product';
 
