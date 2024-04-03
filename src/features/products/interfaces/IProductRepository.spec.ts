@@ -26,6 +26,12 @@ describe('IProductRepository', () => {
     expect(product[0].price).toBe(100);
   })
 
+  it('should return a product when calling get filter for price', () => {
+    const product = productRepository.get({price: 200});
+    expect(product[0].name).toBe('Product 2');
+    expect(product[0].price).toBe(200);
+  })
+
   it('should return all products when calling get', () => {
     const products = productRepository.get({});
     expect(products).toHaveLength(4);
