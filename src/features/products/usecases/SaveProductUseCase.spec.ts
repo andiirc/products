@@ -1,4 +1,3 @@
-import {describe, it, expect, beforeEach } from 'vitest';
 import { SaveProductUseCase } from "./SaveProductUseCase";
 import { GetProductUseCase } from './GetProductUseCase';
 import { IProductRepository } from "src/features/products/interfaces/IProductRepository";
