@@ -29,8 +29,8 @@ const HomePage:FC = (): JSX.Element => {
 
   const handleAddProduct = (event: any) => {
     event.preventDefault();
-    const productsReposiroty = new ProductRepository();
-    const saveProductUseCase = new SaveProductUseCase(productsReposiroty);
+    const productsRepository = new ProductRepository();
+    const saveProductUseCase = new SaveProductUseCase(productsRepository);
     saveProductUseCase.apply(product);
     setProducts([...products, product]);
     setProduct({name: '', price: 0});
