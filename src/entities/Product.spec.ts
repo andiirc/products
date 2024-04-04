@@ -11,6 +11,7 @@ describe('Product', () => {
     expect(user.id).toBe(id);
     expect(user.name).toBe(name);
     expect(user.price).toBe(price);
+    expectTypeOf(user).toEqualTypeOf<Product>();
   });
 
   it('Products interface is defined', () => {
@@ -19,6 +20,7 @@ describe('Product', () => {
     };
   
     expect(products).toBeDefined();
+    expectTypeOf(products).toEqualTypeOf<Products>();
   });
 
   it('Products has a property "products" which is an array', () => {
@@ -27,6 +29,7 @@ describe('Product', () => {
     };
   
     expect(Array.isArray(products.products)).toBe(true);
+    expectTypeOf(products).toEqualTypeOf<Products>();
   });
 
   it('Products interface is defined', () => {
@@ -35,14 +38,15 @@ describe('Product', () => {
     };
   
     expect(product).toBeDefined();
+    expectTypeOf(product).toEqualTypeOf<ProductItem>();
   });
 
-  it('ProductItem has a property "product" which is an object', () => {
+  it('ProductItem has a property "product" which is an object of type ProductItem', () => {
     const product: ProductItem = {
       product: { id: '8273-39348734-hdyehd', name: 'vitamina c', price: 60000 },
     };
   
-    expect(typeof product.product).toBe('object');
+    expectTypeOf(product).toEqualTypeOf<ProductItem>();
   });
   
   it('should array products with the correct properties', () => { 
@@ -58,6 +62,7 @@ describe('Product', () => {
     expect(products[1].id).toBe('mkol287-09ihy19a-0p0iu');
     expect(products[1].name).toBe('Jabon de baño');
     expect(products[1].price).toBe(3000);
+    expectTypeOf(products).toEqualTypeOf<Product[]>();
   });
 
   
@@ -76,5 +81,6 @@ describe('Product', () => {
     expect(data.products[1].id).toBe('mkol287-09ihy19a-0p0iu');
     expect(data.products[1].name).toBe('Jabon de baño');
     expect(data.products[1].price).toBe(3000);
+    expectTypeOf(data).toEqualTypeOf<Products>();
   });
 });
