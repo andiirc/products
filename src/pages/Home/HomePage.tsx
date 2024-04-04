@@ -51,7 +51,7 @@ const HomePage:FC = (): JSX.Element => {
               variant="outlined"
               value={product.name}
               onChange={(text) => handleChange('name', text)}
-              sx={{ marginBottom: '16px' }} 
+              sx={{ marginBottom: '16px' }}
             />
           </Box>
           <Box>
@@ -60,7 +60,7 @@ const HomePage:FC = (): JSX.Element => {
               variant="outlined"
               value={product.price}
               onChange={(text) => handleChange('price', text)}
-              sx={{ width: '100%', marginBottom: '16px' }} 
+              sx={{ width: '100%', marginBottom: '16px' }}
             />
           </Box>
           <Box>
