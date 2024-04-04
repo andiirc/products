@@ -1,8 +1,8 @@
 
-import { Product } from "../../../../../entities/Product";
-import { IProductRepository } from "../../../interfaces/IProductRepository";
-import { products } from "../../../../../shared/data/products";
-import { v4 as uuidv4 } from 'uuid';
+import { Product } from "src/entities/Product";
+import { IProductRepository } from "src/features/products/interfaces/IProductRepository";
+import { products } from "src/shared/data/products";
+import { v4 as Uid } from 'uuid';
 
 class ProductRepository implements IProductRepository {
   get(filters: { name?: string; price?: number }): Product[] {
@@ -18,7 +18,7 @@ class ProductRepository implements IProductRepository {
       return products;
   }
   save(product: Product): void {
-    const id = uuidv4();
+    const id = Uid();
     products.push({...product, id});
   }
 }
