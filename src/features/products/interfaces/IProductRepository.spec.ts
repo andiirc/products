@@ -1,4 +1,3 @@
-import {describe, it, expect, beforeEach } from 'vitest';
 import { IProductRepository } from './IProductRepository';
 import { MockProductRepository } from './MockProductRepository';
 import { Product } from "src/entities/Product";

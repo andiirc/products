@@ -1,4 +1,3 @@
-import {describe, it, expect, beforeEach } from 'vitest';
 import { GetProductUseCase } from "./GetProductUseCase";
 import { IProductRepository } from "src/features/products/interfaces/IProductRepository";
 import { MockProductRepository } from 'src/features/products/interfaces/MockProductRepository';

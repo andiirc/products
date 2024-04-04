@@ -1,4 +1,3 @@
-import {describe, it, expect} from 'vitest';
 import { Product, Products, ProductItem } from './Product';
 
 describe('Product', () => {
