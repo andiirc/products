@@ -5,10 +5,26 @@ import { render, screen, fireEvent } from '@testing-library/react';
   ListProducts: () => <div>ListProducts</div>
 }));*/
 
+/*
+vi.mock('src/features/products/adapters/out/repository/ProductRepository', () => ({
+  ProductRepository: () => ({
+    save: vi.fn()
+  })
+}));
+
+vi.mock('src/features/products/usecases/SaveProductUseCase', () => ({
+  SaveProductUseCase: () => ({
+    apply: vi.fn()
+  })
+}));*/
+
 describe('HomePage', () => {
 
-  it('should render HomePage', () => {
+  beforeEach(() => {
     render(<HomePage />);
+  })
+
+  it('should render HomePage', () => {
     const title = screen.getByText('Crear Productos');
     expect(title).toBeDefined();
     expect(screen.getByLabelText('Nombre')).toBeDefined();
@@ -16,15 +32,29 @@ describe('HomePage', () => {
     expect(screen.getByRole('button', { name: /Crear/i })).toBeDefined();
   });
 
-  it('should the button must be enabled if the fields are filled in.', () => {
-    render(<HomePage />);
+  it('should the button must be disabled if the name and price fields are empty.', () => {
     const nameInput = screen.getByLabelText('Nombre');
     const priceInput = screen.getByLabelText('Precio');
-    const button = screen.getByRole('button', { name: /Crear/i });
 
-    fireEvent.change(nameInput, { target: { value: 'Product 1' } });
-    fireEvent.change(priceInput, { target: { value: 100 } });
+    const button = screen.getByText('Crear');
+    expect(button.getAttribute('disabled')).toBe('');
 
-    expect(button).toBeDefined();
+    fireEvent.change(nameInput, { target: { value: 'Product 5' } });
+    fireEvent.change(priceInput, { target: { value: 20000 } });
+
+    expect(button.getAttribute('disabled')).toBeNull();
   });
+
+  /*it('should call handleAddProduct method when form is submitted', () => {
+    const nameInput = screen.getByLabelText('Nombre');
+    const priceInput = screen.getByLabelText('Precio');
+    const button =  screen.getByText('Crear');
+
+    fireEvent.change(nameInput, { target: { value: 'Product 5' } });
+    fireEvent.change(priceInput, { target: { value: 20000 } });
+
+    fireEvent.click(button);
+    expect(screen.getByText('Product 5')).toBeDefined();
+  })*/
+
 });
