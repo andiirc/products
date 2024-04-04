@@ -1,25 +1,21 @@
 
 import { FC, useEffect, useState } from 'react'
 import { ListProducts } from 'src/features/products/components/ListProducts'
-import { ProductRepository } from 'src/features/products/adapters/out/repository/ProductRepository';
-import { GetProductUseCase } from 'src/features/products/usecases/GetProductUseCase';
-import { SaveProductUseCase } from 'src/features/products/usecases/SaveProductUseCase';
 import { TextField, Button, Box, Container, Typography } from '@mui/material';
 import { Product } from 'src/entities/Product';
+import { ProductUseCases } from 'src/features/products/usecases/ProductUseCases';
 
 const HomePage:FC = (): JSX.Element => {
   const [product, setProduct] = useState<Product>({name: '', price: 0});
   const [products, setProducts] = useState<Product[]>([]);
-
+  const { getProducts, createProduct } = ProductUseCases
+  
   useEffect(() => {
     handleLoadProducts();
   },[products]);
 
   const handleLoadProducts = () => {
-    const productsReposiroty = new ProductRepository();
-    const getProductsUseCase = new GetProductUseCase(productsReposiroty);
-    const filters = {};
-    const listProducts = getProductsUseCase.apply(filters);
+    const listProducts = getProducts();
     setProducts(listProducts);
   }
 
@@ -29,9 +25,7 @@ const HomePage:FC = (): JSX.Element => {
 
   const handleAddProduct = (event: any) => {
     event.preventDefault();
-    const productsRepository = new ProductRepository();
-    const saveProductUseCase = new SaveProductUseCase(productsRepository);
-    saveProductUseCase.apply(product);
+    createProduct(product);
     setProducts([...products, product]);
     setProduct({name: '', price: 0});
   }

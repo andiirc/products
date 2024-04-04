@@ -1,23 +1,6 @@
 import { HomePage } from './HomePage';
 import { render, screen, fireEvent } from '@testing-library/react';
 
-/*vi.mock('src/features/products/components/ListProducts', () => ({
-  ListProducts: () => <div>ListProducts</div>
-}));*/
-
-/*
-vi.mock('src/features/products/adapters/out/repository/ProductRepository', () => ({
-  ProductRepository: () => ({
-    save: vi.fn()
-  })
-}));
-
-vi.mock('src/features/products/usecases/SaveProductUseCase', () => ({
-  SaveProductUseCase: () => ({
-    apply: vi.fn()
-  })
-}));*/
-
 describe('HomePage', () => {
 
   beforeEach(() => {
@@ -56,5 +39,4 @@ describe('HomePage', () => {
     fireEvent.click(button);
     expect(screen.getByText('Product 5')).toBeDefined();
   })*/
-
 });
