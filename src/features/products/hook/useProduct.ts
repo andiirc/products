@@ -32,6 +32,7 @@ const useProduct = () => {
   return {
     product,
     products,
+    handleLoadProducts,
     handleChange,
     handleAddProduct,
     isFormValid
