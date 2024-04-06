@@ -3,13 +3,13 @@ import { FC, useEffect, useState } from 'react'
 import { ListProducts } from 'src/features/products/components/ListProducts'
 import { TextField, Button, Box, Container, Typography } from '@mui/material';
 import { Product } from 'src/entities/Product';
-import { ProductUseCases } from 'src/features/products/usecases/ProductUseCases';
+import { ProductUseCaseManager } from 'src/features/products/usecases/ProductUseCasesManager';
 
 const HomePage:FC = (): JSX.Element => {
   const [product, setProduct] = useState<Product>({name: '', price: 0});
   const [products, setProducts] = useState<Product[]>([]);
-  const { getProducts, createProduct } = ProductUseCases
-  
+  const { getProducts, createProduct } = ProductUseCaseManager
+
   useEffect(() => {
     handleLoadProducts();
   },[products]);

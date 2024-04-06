@@ -28,15 +28,4 @@ describe('HomePage', () => {
     expect(button.getAttribute('disabled')).toBeNull();
   });
 
-  /*it('should call handleAddProduct method when form is submitted', () => {
-    const nameInput = screen.getByLabelText('Nombre');
-    const priceInput = screen.getByLabelText('Precio');
-    const button =  screen.getByText('Crear');
-
-    fireEvent.change(nameInput, { target: { value: 'Product 5' } });
-    fireEvent.change(priceInput, { target: { value: 20000 } });
-
-    fireEvent.click(button);
-    expect(screen.getByText('Product 5')).toBeDefined();
-  })*/
 });
