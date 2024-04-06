@@ -38,4 +38,4 @@ const useProduct = () => {
   }
 }
 
-export { useProduct };
+export { useProduct }
