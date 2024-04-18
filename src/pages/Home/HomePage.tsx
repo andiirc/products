@@ -8,14 +8,13 @@ import { ProductUseCaseManager } from 'src/features/products/usecases/ProductUse
 const HomePage:FC = (): JSX.Element => {
   const [product, setProduct] = useState<Product>({name: '', price: 0});
   const [products, setProducts] = useState<Product[]>([]);
-  const { getProducts, createProduct } = ProductUseCaseManager
 
   useEffect(() => {
     handleLoadProducts();
   },[products]);
 
   const handleLoadProducts = () => {
-    const listProducts = getProducts();
+    const listProducts = ProductUseCaseManager.getProducts();
     setProducts(listProducts);
   }
 
@@ -25,7 +24,7 @@ const HomePage:FC = (): JSX.Element => {
 
   const handleAddProduct = (event: any) => {
     event.preventDefault();
-    createProduct(product);
+    ProductUseCaseManager.saveProduct(product);
     setProducts([...products, product]);
     setProduct({name: '', price: 0});
   }
