@@ -32,7 +32,7 @@ describe('useProduct', () => {
   it('should add a product', () => {
     const product = { name: 'Product 1', price: 10000 };
     const createProductUseCaseMock = vi.fn();
-    vi.spyOn(ProductUseCaseManager, 'createProduct').mockImplementation(createProductUseCaseMock);
+    vi.spyOn(ProductUseCaseManager, 'saveProduct').mockImplementation(createProductUseCaseMock);
     vi.spyOn(ProductUseCaseManager, 'getProducts').mockReturnValue([product]);
     const { result } = renderHook(() => useProduct());
     act(() => {
@@ -41,5 +41,4 @@ describe('useProduct', () => {
     expect(createProductUseCaseMock).toHaveBeenCalled();
     expect(result.current.products).toEqual([product]);
   });
- 
 });

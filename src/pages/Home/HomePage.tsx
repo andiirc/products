@@ -2,34 +2,22 @@
 import { FC, useEffect, useState } from 'react'
 import { ListProducts } from 'src/features/products/components/ListProducts'
 import { TextField, Button, Box, Container, Typography } from '@mui/material';
-import { Product } from 'src/entities/Product';
-import { ProductUseCaseManager } from 'src/features/products/usecases/ProductUseCasesManager';
+import { useProduct } from 'src/features/products/hook/useProduct';
 
 const HomePage:FC = (): JSX.Element => {
-  const [product, setProduct] = useState<Product>({name: '', price: 0});
-  const [products, setProducts] = useState<Product[]>([]);
+
+  const { 
+    product,
+    products,
+    handleLoadProducts,
+    handleChange,
+    handleAddProduct,
+    isFormValid
+  } = useProduct();
 
   useEffect(() => {
     handleLoadProducts();
   },[products]);
-
-  const handleLoadProducts = () => {
-    const listProducts = ProductUseCaseManager.getProducts();
-    setProducts(listProducts);
-  }
-
-  const handleChange = (key: string, value: any) => {
-    setProduct({ ...product, [key]: value.target.value });
-  };
-
-  const handleAddProduct = (event: any) => {
-    event.preventDefault();
-    ProductUseCaseManager.saveProduct(product);
-    setProducts([...products, product]);
-    setProduct({name: '', price: 0});
-  }
-
-  const isFormValid = product.name.trim() !== '' && product.price > 0;
 
   return (
     <Container maxWidth="sm">
