@@ -4,12 +4,11 @@ import { SaveProductUseCase } from './SaveProductUseCase';
 import { GetProductUseCase } from './GetProductUseCase';
 
 describe('ProductUseCasesManager', () => {
-
   it('should create a product with correct parameters', () => {
     const product: Product = { name: 'Product 1', price: 10000 };
     const saveProductUseCaseMock = vi.fn();
     vi.spyOn(SaveProductUseCase.prototype, 'apply').mockImplementation(saveProductUseCaseMock);
-    ProductUseCaseManager.createProduct(product);
+    ProductUseCaseManager.saveProduct(product);
     expect(saveProductUseCaseMock).toHaveBeenCalledWith(product);
   });
 
