@@ -5,14 +5,13 @@ import { ProductUseCaseManager } from 'src/features/products/usecases/ProductUse
 const useProduct = () => {
   const [product, setProduct] = useState<Product>({name: '', price: 0});
   const [products, setProducts] = useState<Product[]>([]);
-  const { getProducts, createProduct } = ProductUseCaseManager
 
   useEffect(() => {
     handleLoadProducts();
   },[products]);
 
   const handleLoadProducts = (): void => {
-    const listProducts = getProducts();
+    const listProducts = ProductUseCaseManager.getProducts();
     setProducts(listProducts);
   }
 
@@ -22,7 +21,7 @@ const useProduct = () => {
 
   const handleAddProduct = (event: any): void => {
     event.preventDefault();
-    createProduct(product);
+    ProductUseCaseManager.saveProduct(product);
     setProducts([...products, product]);
     setProduct({name: '', price: 0});
   }
