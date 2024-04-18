@@ -2,7 +2,16 @@ import { useState, useEffect } from 'react';
 import { Product } from 'src/entities/Product';
 import { ProductUseCaseManager } from 'src/features/products/usecases/ProductUseCasesManager';
 
-const useProduct = () => {
+interface useProduct  {
+  product: Product;
+  products: Product[];
+  handleLoadProducts: () => void;
+  handleChange: (key: string, value: any) => void;
+  handleAddProduct: (event: any) => void;
+  isFormValid: boolean;
+}
+
+const useProduct = (): useProduct => {
   const [product, setProduct] = useState<Product>({name: '', price: 0});
   const [products, setProducts] = useState<Product[]>([]);
 
