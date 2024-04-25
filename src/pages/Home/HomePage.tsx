@@ -1,11 +1,10 @@
 
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect } from 'react'
 import { ListProducts } from 'src/features/products/components/ListProducts'
 import { TextField, Button, Box, Container, Typography } from '@mui/material';
 import { useProduct } from 'src/features/products/hook/useProduct';
 
 const HomePage:FC = (): JSX.Element => {
-
   const { 
     product,
     products,
